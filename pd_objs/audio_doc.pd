@@ -1,11 +1,11 @@
 #N canvas 0 30 798 854 10;
-#X obj 656 18 catch~ out;
+#X obj 621 12 catch~ out;
 #X floatatom 1177 484 5 0 0 0 - - -;
 #X floatatom 1177 581 5 0 0 0 - - -;
 #X floatatom 1187 535 6 0 0 0 - - -;
 #X obj 1177 558 sdSizeFromLength;
 #X obj 1177 514 sdLengthFromSize;
-#X obj 589 107 s~ in;
+#X obj 645 157 s~ in;
 #X obj 60 169 r~ in;
 #N canvas 0 30 846 854 glue 0;
 #X msg 195 94 2;
@@ -29,25 +29,23 @@
 #X connect 8 0 7 0;
 #X connect 9 0 2 0;
 #X connect 9 0 8 0;
-#X restore 578 183 pd glue;
+#X restore 565 263 pd glue;
 #X obj 63 92 sdTableNoArray_obj tab1 \$0-GLOBAL 60000;
 #X obj 64 121 sdTableNoArray_obj tab2 \$0-GLOBAL 60000;
 #N canvas 0 30 798 854 gui 0;
 #X obj 144 56 sdObjState_ui \$0-GLOBAL;
 #X restore 52 38 pd gui;
-#X obj 577 239 table tab1.array;
-#X obj 577 266 table tab2.array;
+#X obj 564 319 table tab1.array;
+#X obj 564 346 table tab2.array;
 #X obj 58 373 sdReadSample_ui~ readSample1 \$0-GLOBAL tab1;
 #X obj 58 286 sdReadTable_ui~ readTable1 \$0-GLOBAL tab1;
 #X obj 57 460 sdPlaySample_ui~ playSample1 \$0-GLOBAL tab1;
 #X obj 56 694 sdPlayGranular_ui~ granePlayer \$0-GLOBAL tab1;
-#X obj 571 39 sdIn_ui~;
-#X obj 632 38 sdOut_ui~;
 #X text 17 65 table;
-#X obj 578 161 loadbang;
+#X obj 565 241 loadbang;
 #X obj 60 192 sdRecorder_ui~ rec1 \$0-GLOBAL tab1;
 #X obj 56 564 sdTapeHead_ui~ tapeHead1 \$0-GLOBAL tab1;
-#X obj 641 163 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 628 243 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 23 17 user interface to control all objects;
 #X text 21 674 play with granular time stretching and/or pitch shifting
@@ -57,14 +55,15 @@
 #X text 18 270 read from a table;
 #X text 19 355 read a section of a table (a "sample");
 #X text 23 444 play a section of the table;
-#X connect 0 0 19 0;
-#X connect 0 0 19 1;
+#X obj 604 39 sdIO_ui~;
+#X connect 0 0 30 0;
+#X connect 0 0 30 1;
 #X connect 1 0 5 0;
 #X connect 4 0 2 0;
 #X connect 5 0 3 0;
 #X connect 5 0 4 0;
-#X connect 7 0 22 0;
-#X connect 18 0 6 0;
-#X connect 18 1 6 0;
-#X connect 21 0 8 0;
-#X connect 24 0 8 0;
+#X connect 7 0 20 0;
+#X connect 19 0 8 0;
+#X connect 22 0 8 0;
+#X connect 30 0 6 0;
+#X connect 30 1 6 0;

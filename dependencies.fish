@@ -17,5 +17,5 @@ set fishshell_cmd_opts \
 set pdUtils \
 	pdUtils \
 	git@github.com:EsGeh/pdUtils.git	\
-	1805464d9d79af657ade20148c7a56d8a37d4eda \
+	bde682020f6ddd44b7d733426d07897e2a07bc5f \
 	"scripts/init.fish --deps-dir \$DEP_DIR"
