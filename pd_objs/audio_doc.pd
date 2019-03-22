@@ -7,7 +7,7 @@
 #X obj 1177 514 sdLengthFromSize;
 #X obj 645 157 s~ in;
 #X obj 60 169 r~ in;
-#N canvas 0 30 846 854 glue 0;
+#N canvas 0 30 798 854 glue 0;
 #X msg 195 94 2;
 #X obj 195 117 until;
 #X obj 195 54 t b b;

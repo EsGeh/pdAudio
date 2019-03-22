@@ -1,4 +1,4 @@
-#N canvas 0 30 846 854 10;
+#N canvas 0 30 798 854 10;
 #X obj 69 322 throw~ out;
 #X obj 102 143 tgl 15 0 empty empty output~ 17 7 0 10 -262144 -1 -1
 1 1;
@@ -11,7 +11,6 @@
 -1 0 1;
 #X obj 393 127 line;
 #X obj 401 96 pack 0 100;
-#X msg 333 63 out 1 clear;
 #X obj 166 142 bng 15 250 50 0 \$0-tab1 empty tab1 17 7 0 10 -262144
 -1 -1;
 #X obj 210 143 bng 15 250 50 0 \$0-tab2 empty tab2 17 7 0 10 -262144
@@ -29,13 +28,12 @@
 #X connect 5 0 6 0;
 #X connect 6 0 1 0;
 #X connect 7 0 9 0;
-#X connect 8 0 18 0;
+#X connect 8 0 17 0;
 #X connect 9 0 8 0;
-#X connect 10 0 17 1;
-#X connect 13 0 17 1;
-#X connect 14 0 13 0;
-#X connect 15 0 16 0;
-#X connect 16 0 17 1;
-#X connect 17 0 2 0;
-#X connect 18 0 17 0;
+#X connect 12 0 16 1;
+#X connect 13 0 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 1;
+#X connect 16 0 2 0;
+#X connect 17 0 16 0;
 #X coords 0 -1 1 1 230 60 1 100 100;
