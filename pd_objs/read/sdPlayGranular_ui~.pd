@@ -1,0 +1,47 @@
+#N canvas 0 30 846 854 10;
+#X obj 41 397 throw~ out;
+#X obj 202 243 tgl 15 0 empty empty output~ 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 41 366 *~;
+#X obj 75 337 line~;
+#X obj 75 314 pack 0 50;
+#X obj 167 181 loadbang;
+#X msg 167 205 1;
+#X obj 258 222 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -1 -262144
+-1 0 1;
+#X msg 64 37 raw set table tab1;
+#X obj 64 14 r \$0-tab1;
+#X obj 93 61 r \$0-tab2;
+#X msg 93 84 raw set table tab2;
+#X obj 266 242 bng 15 250 50 0 \$0-tab1 empty tab1 17 7 0 10 -262144
+-1 -1;
+#X obj 310 243 bng 15 250 50 0 \$0-tab2 empty tab2 17 7 0 10 -262144
+-1 -1;
+#X obj 391 222 bng 15 250 50 0 \$0-start empty start 17 7 0 10 -262144
+-1 -1;
+#X obj 391 242 bng 15 250 50 0 \$0-stop empty stop 17 7 0 10 -262144
+-1 -1;
+#X obj 233 59 r \$0-start;
+#X msg 233 82 list start 0;
+#X msg 320 86 list stop 0;
+#X obj 320 63 r \$0-stop;
+#X obj 101 140 sdPlayGranularObj~ \$1 \$2 \$3;
+#X obj 248 164 sdSig2Num~;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 8 0 20 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 20 0;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 20 0 2 0;
+#X connect 20 1 21 0;
+#X connect 21 0 7 0;
+#X coords 0 -1 1 1 230 60 1 200 200;

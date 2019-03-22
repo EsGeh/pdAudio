@@ -1,0 +1,18 @@
+#N canvas 0 30 894 854 10;
+#X obj 38 11 inlet;
+#X obj 103 48 sdObjState \$1 \$2;
+#X obj 120 208 sdTableNoArray \$1 \$3;
+#X obj 259 12 r \$0-fromObj;
+#X obj 120 255 s \$0-fromObj;
+#X obj 120 231 list;
+#X obj 75 172 sdEventToProperties;
+#X obj 69 104 sdPackFilter info update;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 1 1 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 1 1;
+#X connect 5 0 4 0;
+#X connect 6 0 2 0;
+#X connect 6 1 2 0;
+#X connect 7 1 6 0;
