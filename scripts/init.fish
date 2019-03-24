@@ -4,7 +4,7 @@ set BASE_DIR (dirname (readlink -m (status filename)))/..
 set SCRIPTS_DIR (dirname (readlink -m (status filename)))
 set DEP_DIR_DEFAULT "$BASE_DIR/dependencies"
 
-set get_deps_version "6b5b4e36940e67c9ff05e75e027000fbc1462e90"
+set get_deps_version "65da50672657e1edaf939291434853ad9fc16ff9"
 
 mkdir -p "$DEP_DIR_DEFAULT"
 
