@@ -1,4 +1,4 @@
-#N canvas 0 30 846 854 10;
+#N canvas 0 30 894 854 10;
 #X obj 41 397 throw~ out;
 #X obj 202 243 tgl 15 0 empty empty output~ 17 7 0 10 -262144 -1 -1
 1 1;
@@ -8,7 +8,7 @@
 #X obj 167 181 loadbang;
 #X msg 167 205 1;
 #X obj 258 222 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -1 -262144
--1 0 1;
+-1 3340 1;
 #X obj 101 140 sdPlaySampleObj~ \$1 \$2 \$3;
 #X msg 64 37 raw set table tab1;
 #X obj 64 14 r \$0-tab1;
@@ -22,11 +22,14 @@
 -1 -1;
 #X obj 391 242 bng 15 250 50 0 \$0-stop empty stop 17 7 0 10 -262144
 -1 -1;
-#X obj 233 59 r \$0-start;
-#X msg 233 82 list start 0;
-#X msg 320 86 list stop 0;
-#X obj 320 63 r \$0-stop;
+#X obj 236 17 r \$0-start;
+#X msg 236 40 list start 0;
+#X msg 238 89 list stop 0;
+#X obj 238 66 r \$0-stop;
 #X obj 248 163 sdSig2Num~;
+#X obj 466 163 sdUnPack;
+#X obj 451 186 / 1;
+#X obj 466 140 sdObjTrack length;
 #X connect 1 0 4 0;
 #X connect 2 0 0 0;
 #X connect 3 0 2 1;
@@ -35,6 +38,7 @@
 #X connect 6 0 1 0;
 #X connect 8 0 2 0;
 #X connect 8 1 21 0;
+#X connect 8 2 24 0;
 #X connect 9 0 8 0;
 #X connect 10 0 9 0;
 #X connect 11 0 12 0;
@@ -43,5 +47,8 @@
 #X connect 18 0 8 0;
 #X connect 19 0 8 0;
 #X connect 20 0 19 0;
-#X connect 21 0 7 0;
+#X connect 21 0 23 0;
+#X connect 22 0 23 1;
+#X connect 23 0 7 0;
+#X connect 24 0 22 0;
 #X coords 0 -1 1 1 230 60 1 200 200;

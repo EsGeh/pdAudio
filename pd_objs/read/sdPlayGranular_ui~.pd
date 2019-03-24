@@ -25,8 +25,12 @@
 #X msg 233 82 list start 0;
 #X msg 320 86 list stop 0;
 #X obj 320 63 r \$0-stop;
-#X obj 101 140 sdPlayGranularObj~ \$1 \$2 \$3;
+#X obj 137 116 sdPlayGranularObj~ \$1 \$2 \$3;
 #X obj 248 164 sdSig2Num~;
+#X obj 370 182 / 1;
+#X obj 397 122 sdObjTrack sample.length;
+#X obj 397 145 sdUnPack;
+#X floatatom 397 168 5 0 0 0 - - -;
 #X connect 1 0 4 0;
 #X connect 2 0 0 0;
 #X connect 3 0 2 1;
@@ -43,5 +47,10 @@
 #X connect 19 0 18 0;
 #X connect 20 0 2 0;
 #X connect 20 1 21 0;
-#X connect 21 0 7 0;
+#X connect 20 2 23 0;
+#X connect 21 0 22 0;
+#X connect 22 0 7 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 1;
+#X connect 24 0 25 0;
 #X coords 0 -1 1 1 230 60 1 200 200;
