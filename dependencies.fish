@@ -6,7 +6,8 @@
 
 set dependencies \
 	fishshell_cmd_opts \
-	pdUtils 
+	pdUtils \
+	sgDevice
 
 # for every entry in $dependencies:
 # 	name uri version [initcommand]
@@ -17,5 +18,10 @@ set fishshell_cmd_opts \
 set pdUtils \
 	pdUtils \
 	https://github.com/EsGeh/pdUtils.git \
-	440ac3b078021bab84956411fda9eb459df3d038 \
+	65716466121672f55ea028b718021b0758e852df \
+	"scripts/init.fish --deps-dir \$DEP_DIR"
+set sgDevice \
+	sgDevice \
+	https://github.com/EsGeh/sgDevice.git \
+	a902497cbea3c0106ffe767d71163200f1555a73 \
 	"scripts/init.fish --deps-dir \$DEP_DIR"

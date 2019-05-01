@@ -1,4 +1,4 @@
-#N canvas 896 30 702 145 10;
+#N canvas 887 30 477 93 10;
 #X obj 368 157 phasor~;
 #X obj 27 31 inlet~;
 #X text 27 14 pos;
@@ -21,7 +21,7 @@
 #X floatatom 573 250 5 0 0 0 - - -;
 #X obj 128 397 outlet~;
 #X text 127 416 position;
-#N canvas 0 30 894 854 properties 1;
+#N canvas 0 30 885 722 properties 1;
 #X obj 27 14 inlet;
 #X obj 467 353 outlet;
 #X text 339 21 "window" is just an alternative way to set "window.length"
@@ -54,8 +54,8 @@
 #X connect 0 0 14 0;
 #X connect 3 0 10 0;
 #X connect 4 0 13 0;
-#X connect 6 0 7 0;
 #X connect 6 0 27 0;
+#X connect 6 0 7 0;
 #X connect 7 0 23 0;
 #X connect 9 1 4 1;
 #X connect 9 1 12 1;

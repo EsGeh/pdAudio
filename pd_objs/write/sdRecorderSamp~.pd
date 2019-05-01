@@ -1,4 +1,4 @@
-#N canvas 0 30 894 854 10;
+#N canvas 0 30 681 345 10;
 #X obj 290 183 sdRecorder~ \$1;
 #X obj 343 20 inlet;
 #X obj 684 260 timer;

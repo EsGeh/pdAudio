@@ -110,3 +110,8 @@ if set -q install_deps
 	echo "installing pdUtils..."
 	eval "$DEP_DIR/pdUtils/scripts/install.fish --dep-dir '$DEP_DIR' --no-subdirs --deps --dest '$install_dest/pdUtils'"
 end
+
+if set -q install_deps
+	echo "installing sgDevice..."
+	eval "$DEP_DIR/sgDevice/scripts/build.fish --prefix '$install_dest/sgDevice' install"
+end
