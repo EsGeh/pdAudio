@@ -1,4 +1,4 @@
-#N canvas 0 30 844 722 10;
+#N canvas 0 30 681 722 10;
 #X obj 29 29 inlet~;
 #X obj 115 9 inlet;
 #X msg 87 458 bang;
@@ -55,7 +55,7 @@ it!;
 #X obj 528 614 r \$0-normalize;
 #X obj 291 240 sdGate 1;
 #X obj 391 364 sdGate 1;
-#X obj 516 191 sdPropertySym table \$0 \$1 update;
+#X obj 655 289 sdPropertySym table \$0 \$1 update;
 #X msg 311 445 length \$1;
 #X obj 535 40 route init;
 #X obj 535 63 t b b;

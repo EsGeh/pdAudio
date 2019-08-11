@@ -11,13 +11,15 @@ source "$SCRIPTS_DIR/utils/cmd_args.fish"
 #################################################
 
 set install_dest "$BASE_DIR/install"
+set dev_version 2
 
 set patch "audio_doc.pd"
 # set io_patch
 
 # (syntax: short/long/description)
 set options_descr \
-	"h/help/print help"
+	"h/help/print help" \
+	"v/dev-version=/sgDevice version. default: $dev_version"
 
 #################################################
 # functions
@@ -49,6 +51,9 @@ if set -q _flag_h
 	print_help
 	exit 0
 else
+	if set -q _flag_dev_version
+		set dev_version $_flag_dev_version
+	end
 end
 
 if test (count $argv) -gt 0
@@ -59,31 +64,34 @@ end
 # actual script
 #################################################
 
-set baud_rate 38400
 
-status is-full-job-control
-echo "full job control: $status"
+if [ "$dev_version" = 1 ]
+	set baud_rate 38400
 
-eval "$SCRIPTS_DIR/utils/ttymidi --baudrate=$baud_rate --serialdevice=/dev/ttyACM0 --name=ttymidi_test &"
+	status is-full-job-control
+	echo "full job control: $status"
 
-set tty_pid (ps -C ttymidi -o pid=)
-# set tty_pid (jobs -l | awk '{print $2}')
+	eval "$SCRIPTS_DIR/utils/ttymidi --baudrate=$baud_rate --serialdevice=/dev/ttyACM0 --name=ttymidi_test &"
 
-if test "$tty_pid" != ""
-	echo "ttymidi pid: $tty_pid"
-else
-	echo "WARNING: sgDevice propably unplugged"
-end
+	set tty_pid (ps -C ttymidi -o pid=)
+	# set tty_pid (jobs -l | awk '{print $2}')
 
-function on_exit
 	if test "$tty_pid" != ""
-		echo "killing tty ($tty_pid)..."
-		kill $tty_pid
-		echo "done"
+		echo "ttymidi pid: $tty_pid"
+	else
+		echo "WARNING: sgDevice propably unplugged"
 	end
-end
 
-trap on_exit EXIT
+	function on_exit
+		if test "$tty_pid" != ""
+			echo "killing tty ($tty_pid)..."
+			kill $tty_pid
+			echo "done"
+		end
+	end
+
+	trap on_exit EXIT
+end
 
 set io_patch (string split -r --max=1 '.' "$patch")[1]"-io.pd"
 if test -f "$install_dest/$io_patch"
@@ -113,6 +121,7 @@ if test -f "$install_dest/$io_patch"
 		-lib zexy \
 		-lib structuredDataC \
 		-lib sgDevice \
+		-send "dev_version $dev_version" \
 		"$install_dest/$io_patch" &
 
 	set io_pid $last_pid
@@ -122,6 +131,7 @@ else
 	## audio:
 	pd \
 		-noprefs \
+		-stderr \
 		-jack \
 		-alsamidi \
 		-mididev 1 \
@@ -130,18 +140,26 @@ else
 		-lib zexy \
 		-lib structuredDataC \
 		-lib sgDevice \
+		-send "dev_version $dev_version" \
 		"$install_dest/$patch" &
 
 	set pd_pid $last_pid
 
 end
 
-if test "$tty_pid" != ""
-	sleep 1
-	aconnect ttymidi_test 'Pure Data'
-end
+if [ "$dev_version" = 1 ]
 
-wait $pd_pid
-if set -q io_pid
-	wait $io_pid
+	if test "$tty_pid" != ""
+		sleep 1
+		aconnect ttymidi_test 'Pure Data'
+	end
+
+	wait $pd_pid
+	if set -q io_pid
+		wait $io_pid
+	end
+else
+	sleep 1
+	and aconnect 'sgDevice 2' 'Pure Data'
+	wait
 end

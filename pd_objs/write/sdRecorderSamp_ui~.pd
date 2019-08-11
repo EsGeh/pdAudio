@@ -1,4 +1,4 @@
-#N canvas 0 407 844 345 10;
+#N canvas 0 30 681 722 10;
 #X obj 36 37 inlet~;
 #X obj 350 45 inlet;
 #X msg 513 134 list start 0;
@@ -10,7 +10,7 @@
 #X text 188 115 prnt msgs;
 #X obj 79 320 r \$0-print_msgs;
 #X obj 46 343 sdGate;
-#X obj 163 129 cnv 14 40 14 empty \$0-clock_rcv 11.3 1 9 1 14 -233017
+#X obj 163 129 cnv 14 40 14 empty \$0-clock_rcv 0.4 1 9 1 14 -233017
 -66577 0;
 #X obj 513 39 r \$0-rec;
 #X obj 513 62 route 1 0;
@@ -20,7 +20,7 @@
 #X obj 311 306 print \$1.in;
 #X obj 251 258 t a a;
 #X obj 246 372 s \$0-rec_rcv;
-#N canvas 0 407 844 345 update_ui 0;
+#N canvas 0 30 681 722 update_ui 0;
 #X obj 370 41 inlet;
 #X obj 369 127 route start stop;
 #X msg 369 180 1;
