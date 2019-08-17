@@ -1,4 +1,4 @@
-#N canvas 805 30 559 156 10;
+#N canvas 764 30 600 118 10;
 #X obj 368 157 phasor~;
 #X obj 27 31 inlet~;
 #X text 27 14 pos;
@@ -21,7 +21,7 @@
 #X floatatom 573 250 5 0 0 0 - - -;
 #X obj 128 397 outlet~;
 #X text 127 416 position;
-#N canvas 0 30 803 722 properties 1;
+#N canvas 0 30 762 722 properties 1;
 #X obj 27 14 inlet;
 #X obj 370 297 outlet;
 #X text 339 13 "window" is just an alternative way to set "window.length"
@@ -50,10 +50,10 @@
 #X floatatom 164 101 5 0 0 0 - - -;
 #X obj 357 116 sdProperty window.pos \$0 0 intern 0 0;
 #X obj 366 144 sdProperty window.length \$0 100 intern 0 1000;
-#X obj 408 171 sdProperty window \$0 0 intern 0 1000;
 #X obj 542 32 r \$0-sample.length;
 #X msg 542 55 set_max window.pos \$1 \, set_max window.length \$1,
 f 25;
+#X obj 408 171 sdProperty window \$0 0 noinit 0 1;
 #X connect 0 0 25 0;
 #X connect 3 0 10 0;
 #X connect 4 0 13 0;
@@ -83,11 +83,11 @@ f 25;
 #X connect 25 0 1 0;
 #X connect 25 1 26 0;
 #X connect 26 0 1 0;
-#X connect 26 1 27 0;
-#X connect 27 0 1 0;
-#X connect 27 1 15 0;
-#X connect 28 0 29 0;
-#X connect 29 0 25 0;
+#X connect 26 1 29 0;
+#X connect 27 0 28 0;
+#X connect 28 0 25 0;
+#X connect 29 0 1 0;
+#X connect 29 1 15 0;
 #X restore 699 42 pd properties;
 #X obj 574 182 r \$0-table;
 #X obj 367 182 s~ \$0-phase;
