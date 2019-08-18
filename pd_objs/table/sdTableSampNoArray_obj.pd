@@ -1,4 +1,4 @@
-#N canvas 0 30 844 722 10;
+#N canvas 0 30 681 722 10;
 #X obj 38 11 inlet;
 #X obj 259 12 r \$0-fromObj;
 #X obj 91 317 s \$0-fromObj;
@@ -8,7 +8,6 @@
 #X obj 91 270 sdTableSampNoArray \$1 \$3;
 #X obj 103 48 sdObjState \$1 GLOBAL \$2;
 #X obj 87 85 t a a;
-#X obj 245 82 t a a;
 #X obj 340 249 outlet;
 #X obj 469 249 outlet;
 #X connect 0 0 7 0;
@@ -22,5 +21,4 @@
 #X connect 7 1 6 0;
 #X connect 7 2 9 0;
 #X connect 8 0 5 0;
-#X connect 8 1 11 0;
-#X connect 9 1 10 0;
+#X connect 8 1 10 0;
