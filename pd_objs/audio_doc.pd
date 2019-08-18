@@ -1,4 +1,4 @@
-#N canvas 0 30 1366 724 10;
+#N canvas 0 30 681 722 10;
 #X obj 510 506 catch~ out;
 #X obj 502 643 s~ in;
 #N canvas 0 30 762 722 glue 0;
@@ -494,7 +494,7 @@ f 30;
 #X connect 0 0 3 0;
 #X connect 5 0 4 0;
 #X restore 341 121 pd rec/read raw tables;
-#N canvas 0 30 681 345 rec/read 0;
+#N canvas 0 30 681 722 rec/read 0;
 #X text 20 130 read a section of a table (a "sample");
 #X obj 49 22 r~ in;
 #X obj 49 44 sdRecorderSamp_ui~ recSamp gRec gTab;
