@@ -1,4 +1,4 @@
-#N canvas 0 30 762 722 10;
+#N canvas 0 30 681 722 10;
 #X obj 67 24 inlet;
 #X obj 626 694 + 3;
 #X obj 77 540 outlet;
@@ -21,7 +21,7 @@
 #X obj 638 421 t s s;
 #X obj 766 123 s \$0-table;
 #X obj 649 15 loadbang;
-#X obj 485 79 f \$2;
+#X obj 476 61 f \$2;
 #X obj 718 72 symbol \$1;
 #X obj 649 37 t b b;
 #X obj 629 108 t s s;
@@ -47,7 +47,7 @@
 #X obj 610 662 r \$0-tableSize;
 #X obj 650 627 sdSizeFromLength;
 #X obj 650 604 r \$0-tableLength;
-#X obj 484 100 s \$0-tableLength;
+#X obj 444 146 s \$0-tableLength;
 #X floatatom 246 88 8 0 0 0 - - -;
 #X floatatom 352 88 6 0 0 0 - - -;
 #X obj 246 67 r \$0-tableSize;
@@ -62,6 +62,11 @@
 #X obj 585 336 sdProperty tableLength \$0 \$2;
 #X msg 439 472 priv.set \$1;
 #X msg 282 477 priv.set_noupdate \$1;
+#X obj 533 89 f \$3;
+#X obj 476 84 t f f;
+#X obj 474 108 sdGate;
+#X obj 533 68 t b;
+#X obj 524 116 s \$0-tableSize;
 #X connect 0 0 7 0;
 #X connect 1 0 13 0;
 #X connect 4 0 31 0;
@@ -79,7 +84,7 @@
 #X connect 19 0 4 1;
 #X connect 19 1 54 0;
 #X connect 21 0 24 0;
-#X connect 22 0 47 0;
+#X connect 22 0 63 0;
 #X connect 23 0 25 0;
 #X connect 23 0 20 0;
 #X connect 24 0 22 0;
@@ -113,3 +118,9 @@
 #X connect 58 1 57 0;
 #X connect 60 0 37 0;
 #X connect 61 0 40 0;
+#X connect 62 0 66 0;
+#X connect 63 0 64 0;
+#X connect 63 1 64 1;
+#X connect 64 0 47 0;
+#X connect 64 1 65 0;
+#X connect 65 0 62 0;

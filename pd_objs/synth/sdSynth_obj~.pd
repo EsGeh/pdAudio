@@ -1,0 +1,5 @@
+#N canvas 0 30 640 722 10;
+#X obj 171 68 sdObjState \$1 \$2;
+#X obj 105 19 inlet;
+#X obj 104 172 sdSynthVoice_obj~;
+#X connect 1 0 0 0;
