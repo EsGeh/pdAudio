@@ -534,47 +534,128 @@ tab1, f 30;
 #X connect 3 0 1 0;
 #X connect 4 0 2 0;
 #X connect 4 0 3 0;
-#X restore 342 252 pd utilities;
-#X obj 342 390 sdPiano_obj piano;
+#X restore 342 312 pd utilities;
 #N canvas 0 30 681 722 Synth 0;
-#X floatatom 188 17 5 0 0 0 - - -;
 #X obj 158 402 throw~ out;
 #X obj 157 333 sdPackFromHuman;
-#X obj 80 19 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 163 67 list start ( pitch ( \$1 ) envelope ( z ( volume ( 0
-) pitch ( 0 ) ) attack ( time ( 200 ) volume ( 1 ) ) decay ( time (
-500 ) volume ( 0.5 ) ) sustain ( time ( 1000 ) pitch ( 1 ) ) sustain2
-( time ( 1500 ) pitch ( 0 ) ) release ( time ( 1700 ) volume ( 0 )
-) ) );
-#X msg 240 289 list start ( envelope ( ) );
 #X obj 157 375 sdSynthVoice_obj~ SynthVoice GLOBAL gSynth;
-#X msg 27 156 list start ( pitch ( \$1 ) );
-#X obj 157 37 f 57;
-#X msg 228 204 list set_env ( envelope ( z ( volume ( 0 ) pitch ( 0
-) ) attack ( time ( 200 ) volume ( 1 ) ) decay ( time ( 500 ) volume
-( 0.5 ) ) sustain ( time ( 1000 ) pitch ( 1 ) ) sustain2 ( time ( 1500
-) pitch ( 0 ) ) release ( time ( 1700 ) volume ( 0 ) ) ) );
-#X floatatom 58 113 5 0 0 0 - - -;
-#X obj 24 75 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X floatatom 63 34 5 0 0 0 - - -;
+#X obj 22 17 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 27 133 f 57;
-#X text 226 178 set envelope;
-#X text 416 288 (empty env enables "always on" mode);
-#X connect 0 0 8 1;
-#X connect 2 0 6 0;
-#X connect 3 0 8 0;
-#X connect 4 0 2 0;
-#X connect 5 0 2 0;
-#X connect 6 0 1 0;
-#X connect 7 0 2 0;
-#X connect 8 0 4 0;
-#X connect 9 0 2 0;
-#X connect 10 0 12 1;
-#X connect 11 0 12 0;
-#X connect 12 0 7 0;
-#X restore 342 356 pd Synth;
+#X obj 32 54 f 57;
+#X text 414 274 (empty env enables "always on" mode);
+#X msg 68 194 list start ( );
+#X msg 71 225 list stop ( );
+#X obj 399 611 sdPackFromHuman;
+#X msg 436 484 list start ( pitch ( 57 ) );
+#X msg 456 538 list start ( pitch ( 58 ) );
+#X obj 399 660 throw~ out;
+#X msg 445 506 list stop ( pitch ( 57 ) );
+#X msg 463 561 list stop ( pitch ( 58 ) );
+#X msg 490 591 list stop ( );
+#X obj 399 635 sdSynth_obj~ Synth GLOBAL gSynth;
+#X text 225 145 set envelopes;
+#X msg 238 275 list set ( envelopes ( ) );
+#X msg 32 77 list start ( pitch ( \$1 ) );
+#X text 199 576 (empty env enables "always on" mode);
+#X text 21 550 set envelopes;
+#X msg 23 577 list set ( envelopes ( ) );
+#X obj 238 167 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 0 30 681 722 start 0;
+#X msg 227 164 list set ( envelopes ( start ( z ( pitch ( 0 ) ) attack
+( delay ( 200 ) volume ( 1 ) ) decay ( time ( 500 ) volume ( 0.5 )
+) sustain ( time ( 1000 ) pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch
+( 0 ) ) ) stop ( release ( delay ( 50 ) volume ( 0 ) ) ) ) );
+#X obj 227 141 inlet;
+#X obj 227 239 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X restore 236 186 pd start \, stop env;
+#N canvas 0 30 681 722 start 0;
+#X obj 234 121 inlet;
+#X obj 205 441 outlet;
+#X msg 232 162 list set ( envelopes ( start ( z ( pitch ( 0 ) ) attack
+( delay ( 200 ) volume ( 1 ) ) decay ( time ( 500 ) volume ( 0.5 )
+) sustain ( time ( 1000 ) pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch
+( 0 ) ) ) play ( z ( pitch ( 0 ) ) attack ( delay ( 200 ) volume (
+1 ) ) decay ( time ( 500 ) volume ( 0.5 ) ) sustain ( time ( 1000 )
+pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch ( 0 ) ) release ( delay
+( 50 ) volume ( 0 ) ) ) stop ( release ( delay ( 50 ) volume ( 0 )
+) ) ) );
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 231 244 pd start \, stop \, play env;
+#X obj 227 224 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 33 163 list play ( pitch ( \$1 ) );
+#X floatatom 64 118 5 0 0 0 - - -;
+#X obj 18 102 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 33 138 f 57;
+#X floatatom 246 39 5 0 0 0 - - -;
+#X msg 246 63 list set ( pitch ( \$1 ) );
+#N canvas 0 30 681 722 start 0;
+#X obj 234 121 inlet;
+#X obj 205 441 outlet;
+#X msg 232 162 list set ( envelopes ( start ( z ( pitch ( 0 ) ) attack
+( delay ( 200 ) volume ( 1 ) ) decay ( time ( 500 ) volume ( 0.5 )
+) sustain ( time ( 1000 ) pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch
+( 0 ) ) ) play ( z ( pitch ( 0 ) ) attack ( delay ( 200 ) volume (
+1 ) ) decay ( time ( 500 ) volume ( 0.5 ) ) sustain ( time ( 1000 )
+pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch ( 0 ) ) release ( delay
+( 50 ) volume ( 0 ) ) ) stop ( release ( delay ( 50 ) volume ( 0 )
+) ) ) );
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 30 646 pd start \, stop \, play env;
+#X obj 26 626 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 429 449 list play ( pitch ( 57 ) );
+#X text 278 410 NOTE: if a "play" msg. stops automatically \, this
+isn't yet handled by the voice manager \, resulting in unnecessary
+"stop" messages;
+#X text 578 591 stop all voices;
+#X obj 248 222 loadbang;
+#X obj 50 623 loadbang;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 1;
+#X connect 4 0 5 0;
+#X connect 5 0 19 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 16 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 13 0 9 0;
+#X connect 14 0 9 0;
+#X connect 15 0 9 0;
+#X connect 16 0 12 0;
+#X connect 18 0 1 0;
+#X connect 19 0 1 0;
+#X connect 22 0 9 0;
+#X connect 23 0 24 0;
+#X connect 24 0 1 0;
+#X connect 25 0 1 0;
+#X connect 26 0 25 0;
+#X connect 27 0 1 0;
+#X connect 28 0 30 1;
+#X connect 29 0 30 0;
+#X connect 30 0 27 0;
+#X connect 31 0 32 0;
+#X connect 32 0 1 0;
+#X connect 33 0 9 0;
+#X connect 34 0 33 0;
+#X connect 35 0 9 0;
+#X connect 38 0 25 0;
+#X connect 39 0 33 0;
+#X restore 341 262 pd Synth;
 #X obj 13 35 sdObjState_ui GUI GLOBAL gIO gRec gRead gSynth gTab;
+#X obj 115 639 sdObjTrack dest;
+#X obj 115 662 sdUnPack;
+#X obj 245 693 sdPack;
+#X obj 347 357 sdPiano_obj piano GLOBAL 1 1 start stop, f 18;
 #X connect 0 0 6 0;
 #X connect 0 0 6 1;
 #X connect 6 0 1 0;
@@ -592,4 +673,9 @@ tab1, f 30;
 #X connect 22 0 23 0;
 #X connect 22 2 23 1;
 #X connect 24 0 12 0;
-#X connect 35 0 17 0;
+#X connect 34 0 17 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 36 0 37 1;
+#X connect 37 0 21 0;
+#X connect 38 0 37 0;

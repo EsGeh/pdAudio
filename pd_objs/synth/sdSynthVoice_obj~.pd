@@ -9,11 +9,13 @@
 #X obj 45 116 sdPackFilter info update;
 #X obj 143 221 sdSynthVoice~;
 #X text 672 382 5th C.P.;
+#X obj 258 118 print \$1.in;
 #X connect 0 0 3 0;
 #X connect 1 0 8 1;
-#X connect 1 1 8 1;
+#X connect 1 1 8 2;
 #X connect 3 0 7 0;
-#X connect 3 1 8 1;
+#X connect 3 0 10 0;
+#X connect 3 1 8 2;
 #X connect 5 0 6 0;
 #X connect 6 0 3 1;
 #X connect 7 1 1 0;

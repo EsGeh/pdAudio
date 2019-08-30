@@ -18,10 +18,10 @@ set fishshell_cmd_opts \
 set pdUtils \
 	pdUtils \
 	https://github.com/EsGeh/pdUtils.git \
-	7ce6e562ec94d406b77170ff73a4d38fa6a0b6f3 \
+	5a3a83c053c8d1db075c45d35693e092a47fad75 \
 	"scripts/init.fish --deps-dir \$DEP_DIR"
 set sgDevice \
 	sgDevice \
 	https://github.com/EsGeh/sgDevice.git \
-	64c9aa9f89836e452342c9507e2e31fcc6395fda \
+	91c7b096a86661ae18a94bf3c80123458df9258d \
 	"scripts/init.fish --deps-dir \$DEP_DIR"
