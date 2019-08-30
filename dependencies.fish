@@ -23,5 +23,5 @@ set pdUtils \
 set sgDevice \
 	sgDevice \
 	https://github.com/EsGeh/sgDevice.git \
-	91c7b096a86661ae18a94bf3c80123458df9258d \
+	8c68be3c563b7989f04d112a31a0299d13173eb1 \
 	"scripts/init.fish --deps-dir \$DEP_DIR"
