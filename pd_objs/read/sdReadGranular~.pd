@@ -1,4 +1,4 @@
-#N canvas 0 30 681 722 10;
+#N canvas 0 30 762 736 10;
 #X obj 368 157 phasor~;
 #X obj 27 31 inlet~;
 #X text 27 14 pos;
@@ -21,7 +21,7 @@
 #X floatatom 573 250 5 0 0 0 - - -;
 #X obj 128 397 outlet~;
 #X text 127 416 position;
-#N canvas 0 30 681 722 properties 0;
+#N canvas 0 30 762 736 properties 0;
 #X obj 27 14 inlet;
 #X obj 278 361 outlet;
 #X text 339 13 "window" is just an alternative way to set "window.length"
@@ -125,7 +125,7 @@ f 25;
 #X connect 3 0 2 0;
 #X restore 219 358 pd envelope;
 #X obj 362 80 +~;
-#N canvas 0 473 846 411 fade_env 0;
+#N canvas 0 30 762 736 fade_env 0;
 #X obj 50 29 inlet~;
 #X obj 58 222 outlet~;
 #X obj 55 107 expr~ if($v1 < 0.1 \, $v1/0.1 \, if ($v1 > 0.9 \, 1-($v1-0.9)/0.1
@@ -195,7 +195,6 @@ f 25;
 #X connect 30 0 29 0;
 #X connect 32 0 7 0;
 #X connect 33 0 43 0;
-#X connect 33 0 45 0;
 #X connect 34 0 39 0;
 #X connect 35 0 4 0;
 #X connect 36 0 3 1;

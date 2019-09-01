@@ -1,4 +1,4 @@
-#N canvas 0 30 681 722 10;
+#N canvas 0 30 885 736 10;
 #X obj 198 2 inlet;
 #X obj 33 638 *~;
 #X obj 433 509 sdSeqPlayer;
@@ -40,7 +40,7 @@
 #X obj 155 476 sdDist~;
 #X obj 199 652 s \$0-fromFunc;
 #X obj 194 453 r \$0-fromFunc;
-#X obj 384 141 sdProperty volume \$0 1 intern 0 1;
+#X obj 342 89 sdProperty volume \$0 1 intern 0 1;
 #X obj 144 545 sdGate~;
 #X obj 198 581 expr ($f1-($f2-1)/2)/(($f2-3)/2);
 #X obj 178 424 r \$0-dist;
@@ -49,8 +49,8 @@
 #X obj 10 542 sdGate~;
 #X obj 61 492 r \$0-dist.wet;
 #X obj 61 515 expr 1-$f1;
-#X obj 438 189 sdProperty dist.wet \$0 0.5 intern 0 1;
-#X obj 420 166 sdProperty dist \$0 0.5 intern 0 1;
+#X obj 396 137 sdProperty dist.wet \$0 0.5 intern 0 1;
+#X obj 378 114 sdProperty dist \$0 0.5 intern 0 1;
 #X obj 198 25 t a a;
 #X obj 778 314 sdPackFromHuman;
 #X obj 743 220 t b b;
@@ -62,7 +62,7 @@
 #X obj 340 9 loadbang;
 #X msg 340 32 init;
 #X msg 778 265 list p1 ( delay ( 50 ) volume ( 0 ) ), f 19;
-#X obj 352 86 sdPropertyList envelopes \$0;
+#X obj 406 162 sdPropertyList envelopes \$0;
 #X obj 324 61 sdProperty pitch \$0 60 intern 0 127 1;
 #X obj 92 8 inlet;
 #X obj 190 158 s \$0-envelopes_rcv;
@@ -165,6 +165,7 @@
 #X connect 47 0 48 0;
 #X connect 48 0 46 1;
 #X connect 49 0 29 0;
+#X connect 49 1 62 0;
 #X connect 50 0 29 0;
 #X connect 50 1 49 0;
 #X connect 51 0 28 0;
@@ -182,9 +183,8 @@
 #X connect 60 0 63 0;
 #X connect 61 0 52 0;
 #X connect 62 0 29 0;
-#X connect 62 1 40 0;
 #X connect 63 0 29 0;
-#X connect 63 1 62 0;
+#X connect 63 1 40 0;
 #X connect 64 0 67 0;
 #X connect 66 0 70 1;
 #X connect 67 0 70 0;

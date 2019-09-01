@@ -1,4 +1,4 @@
-#N canvas 0 30 885 722 10;
+#N canvas 0 30 721 736 10;
 #X obj 137 352 s \$0-fromObj;
 #X obj 324 31 inlet;
 #X obj 378 9 r \$0-fromObj;
@@ -43,6 +43,7 @@
 #X obj 27 414 *~;
 #X obj 47 326 sdPlayGranular~ \$4;
 #X obj 353 315 sdProperty enable-out \$0 1 intern 0 1 1, f 21;
+#X obj 167 42 print \$1.in;
 #X connect 1 0 21 0;
 #X connect 2 0 22 0;
 #X connect 3 0 4 0;
@@ -60,6 +61,7 @@
 #X connect 20 0 9 0;
 #X connect 20 1 25 0;
 #X connect 21 0 5 0;
+#X connect 21 0 44 0;
 #X connect 21 1 29 0;
 #X connect 21 2 10 0;
 #X connect 22 0 21 1;

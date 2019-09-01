@@ -1,4 +1,4 @@
-#N canvas 0 30 681 722 10;
+#N canvas 0 30 681 736 10;
 #X obj 155 20 inlet;
 #X obj 70 148 sdEventToProperties;
 #X obj 122 269 outlet~;
@@ -8,14 +8,15 @@
 #X obj 226 45 list;
 #X obj 45 116 sdPackFilter info update;
 #X obj 143 221 sdSynthVoice~;
-#X text 672 382 5th C.P.;
 #X obj 258 118 print \$1.in;
+#X obj 385 121 outlet;
 #X connect 0 0 3 0;
 #X connect 1 0 8 1;
 #X connect 1 1 8 2;
 #X connect 3 0 7 0;
-#X connect 3 0 10 0;
+#X connect 3 0 9 0;
 #X connect 3 1 8 2;
+#X connect 3 2 10 0;
 #X connect 5 0 6 0;
 #X connect 6 0 3 1;
 #X connect 7 1 1 0;
