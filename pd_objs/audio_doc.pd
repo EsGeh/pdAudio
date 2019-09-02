@@ -1,4 +1,4 @@
-#N canvas 0 30 885 722 10;
+#N canvas 0 30 721 722 10;
 #X obj 481 503 catch~ out;
 #X obj 482 651 s~ in;
 #N canvas 0 30 681 736 glue 0;
@@ -503,7 +503,7 @@ tab1, f 30;
 #X connect 3 0 4 0;
 #X connect 7 0 6 0;
 #X restore 340 148 pd rec/read samples;
-#N canvas 0 30 885 722 read/play 0;
+#N canvas 0 30 721 722 read/play 0;
 #X text 45 39 loop a "grain" starting at pos;
 #X obj 59 211 throw~ out;
 #X obj 59 101 throw~ out;
