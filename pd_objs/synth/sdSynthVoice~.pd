@@ -1,4 +1,4 @@
-#N canvas 0 30 885 722 10;
+#N canvas 0 30 681 736 10;
 #X obj 198 2 inlet;
 #X obj 33 638 *~;
 #X obj 433 509 sdSeqPlayer;
@@ -144,6 +144,9 @@
 #X obj 474 283 r \$0-events;
 #X obj 474 306 l2s;
 #X symbolatom 474 329 10 0 0 0 - - -;
+#X obj 473 381 l2s;
+#X symbolatom 473 404 30 0 0 0 - - -;
+#X obj 473 358 r \$0-envelopes;
 #X connect 0 0 51 0;
 #X connect 1 0 25 0;
 #X connect 2 1 11 0;
@@ -227,3 +230,5 @@
 #X connect 74 0 73 0;
 #X connect 75 0 76 0;
 #X connect 76 0 77 0;
+#X connect 78 0 79 0;
+#X connect 80 0 78 0;
