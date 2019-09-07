@@ -24,3 +24,15 @@ and begin
 	eval "$DEP_DIR_DEFAULT/get_deps.fish" $argv
 end
 
+# download freeverb
+and begin
+	set lib_name 'freeverb~-1.2'
+	wget \
+		--no-clobber \
+		--directory-prefix "$DEP_DIR_DEFAULT" \
+		"https://sourceforge.net/projects/pure-data/files/libraries/freeverb~/freeverb~-1.2.tar.gz"
+	and cd "$DEP_DIR_DEFAULT"
+	and tar xvzf "$lib_name.tar.gz"
+	and cd "$lib_name"
+	and make
+end

@@ -2,6 +2,7 @@
 
 set BASE_DIR (dirname (readlink -m (status filename)))/..
 set SCRIPTS_DIR (dirname (readlink -m (status filename)))
+set DEP_DIR "$BASE_DIR/dependencies"
 
 source "$SCRIPTS_DIR/utils/cmd_args.fish"
 
@@ -131,12 +132,15 @@ else
 	## audio:
 	pd \
 		-noprefs \
+		-nostdpath \
 		-stderr \
 		-jack \
 		-alsamidi \
 		-mididev 1 \
 		-path "$install_dest/pdUtils" \
 		-path "$install_dest/sgDevice" \
+		-path "$DEP_DIR/zexy" \
+		-path "$DEP_DIR/freeverb~-1.2" \
 		-lib zexy \
 		-lib structuredDataC \
 		-lib sgDevice \
