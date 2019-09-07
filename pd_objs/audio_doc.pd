@@ -398,12 +398,12 @@ $ ( value ) ) ) ) ) Out ( list ) ) #] );
 #N canvas 0 30 681 722 rec/read 0;
 #X text 44 26 record to tables;
 #X text 57 155 read from a table;
-#X obj 85 178 sdTabReadTimeBasedWithPos_obj~ readTab1 GLOBAL gRead
-tab1, f 30;
 #X obj 90 68 sdRecorder_ui~ rec1 gRec gTab;
 #X obj 85 215 throw~ \$0-sampling.out;
 #X obj 90 45 r~ \$0-sampling.in;
-#X connect 2 0 4 0;
+#X obj 85 178 sdReadTabTimeBasedWithPos_obj~ readTab1 GLOBAL gRead
+tab1, f 30;
+#X connect 4 0 2 0;
 #X connect 5 0 3 0;
 #X restore 340 121 pd rec/read raw tables;
 #N canvas 0 30 681 722 rec/read 0;
