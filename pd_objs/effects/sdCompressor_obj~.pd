@@ -3,13 +3,13 @@
 #X obj 54 386 outlet~;
 #X obj 308 43 inlet;
 #X obj 308 71 sdObjState \$1 \$2 \$3;
-#X obj 168 157 sdEventToProperties;
-#X obj 147 121 sdPackFilter info update;
+#X obj 139 140 sdEventToProperties;
+#X obj 118 104 sdPackFilter info update;
 #X obj 551 301 outlet;
-#X obj 290 342 s \$0-fromProps;
+#X obj 215 306 s \$0-fromProps;
 #X obj 387 19 r \$0-fromProps;
 #X obj 387 44 list;
-#X obj 191 301 sdCompressor~ \$4 \$5 \$6;
+#X obj 64 280 sdCompressor~ \$4 \$5 \$6;
 #X connect 0 0 10 0;
 #X connect 2 0 3 0;
 #X connect 3 0 5 0;

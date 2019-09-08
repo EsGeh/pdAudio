@@ -1,4 +1,4 @@
-#N canvas 0 30 721 736 10;
+#N canvas 723 30 641 224 10;
 #N canvas 0 30 681 722 glue 0;
 #X msg 98 482 2;
 #X obj 98 505 until;
@@ -667,32 +667,36 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X restore 473 452 pd;
 #X text 342 364 analog 8..15 \; trigger 8..15 \;;
 #X text 485 364 other ctrls \;;
-#N canvas 0 30 721 736 effects 0;
-#X obj 138 405 throw~ \$0-effects.out;
-#X obj 137 343 r~ \$0-effects.in;
-#X obj 138 381 sdCompressor_obj~ Compressor GLOBAL gEffects;
-#X obj 278 402 env~;
-#X obj 278 428 sdNum_ui 0 100;
-#X obj 93 409 env~;
-#X obj 93 435 sdNum_ui 0 100;
-#X obj 488 321 noise~;
-#X obj 509 374 env~;
-#X obj 509 400 sdNum_ui 0 100;
-#X obj 533 235 sdNum_ui 0 100;
-#X obj 533 318 dbtorms;
-#X obj 488 344 *~ 0;
-#X connect 1 0 2 0;
-#X connect 1 0 5 0;
-#X connect 2 0 0 0;
+#N canvas 0 30 721 736 effects 1;
+#X obj 107 210 throw~ \$0-effects.out;
+#X obj 106 144 r~ \$0-effects.in;
+#X obj 270 205 env~;
+#X obj 270 231 sdNum_ui 0 100;
+#X obj 62 210 env~;
+#X obj 62 236 sdNum_ui 0 100;
+#X obj 456 170 env~;
+#X obj 456 196 sdNum_ui 0 100;
+#X obj 516 18 sdNum_ui 0 100;
+#X obj 509 109 dbtorms;
+#X text 34 109 adjust volume levels into the direction of a "limit"
+;
+#X obj 451 116 osc~ 440;
+#X obj 509 132 sdNum2Sig~;
+#X obj 457 145 *~;
+#X obj 107 182 sdCompressor_obj~ Compressor GLOBAL gEffects;
+#X connect 1 0 4 0;
+#X connect 1 0 14 0;
 #X connect 2 0 3 0;
-#X connect 3 0 4 0;
-#X connect 5 0 6 0;
-#X connect 7 0 12 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
 #X connect 8 0 9 0;
-#X connect 10 0 11 0;
-#X connect 11 0 12 1;
-#X connect 12 0 8 0;
-#X connect 12 0 2 0;
+#X connect 9 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 13 1;
+#X connect 13 0 6 0;
+#X connect 13 0 14 0;
+#X connect 14 0 0 0;
+#X connect 14 0 2 0;
 #X restore 340 226 pd effects;
 #N canvas 0 30 681 722 groups: 0;
 #X obj 117 48 inlet;
@@ -816,13 +820,13 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X obj 260 54 r \$0-in[3]-enable;
 #X obj 372 53 r \$0-in[4]-enable;
 #X obj 590 395 s \$0-fromProps;
-#X obj 501 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 501 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 521 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 521 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 541 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 541 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 561 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 561 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 644 459 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
