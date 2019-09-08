@@ -20,6 +20,7 @@ set patch "audio_doc.pd"
 # (syntax: short/long/description)
 set options_descr \
 	"h/help/print help" \
+	"o/pd-options=/options for pd" \
 	"v/dev-version=/sgDevice version. default: $dev_version"
 
 #################################################
@@ -129,6 +130,10 @@ if test -f "$install_dest/$io_patch"
 
 else
 
+	set pd_options (string split -- ' ' $_flag_pd_options)
+
+	echo "pd options: '$pd_options', count: "(count $pd_options)
+
 	## audio:
 	pd \
 		-noprefs \
@@ -137,6 +142,8 @@ else
 		-jack \
 		-alsamidi \
 		-mididev 1 \
+		$pd_options \
+		-path "/usr/lib/pd/extra" \
 		-path "$install_dest/pdUtils" \
 		-path "$install_dest/sgDevice" \
 		-path "$DEP_DIR/zexy" \
