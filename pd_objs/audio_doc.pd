@@ -1,4 +1,4 @@
-#N canvas 0 30 721 722 10;
+#N canvas 0 30 844 722 10;
 #N canvas 0 30 681 722 glue 0;
 #X msg 98 482 2;
 #X obj 98 505 until;
