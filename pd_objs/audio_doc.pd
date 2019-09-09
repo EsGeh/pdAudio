@@ -1,4 +1,4 @@
-#N canvas 723 30 641 224 10;
+#N canvas 0 30 721 722 10;
 #N canvas 0 30 681 722 glue 0;
 #X msg 98 482 2;
 #X obj 98 505 until;
@@ -405,7 +405,7 @@ tab1, f 30;
 #X connect 4 0 2 0;
 #X connect 5 0 3 0;
 #X restore 340 121 pd rec/read raw tables;
-#N canvas 0 30 681 722 rec/read 0;
+#N canvas 0 30 721 722 rec/read 0;
 #X text 20 130 read a section of a table (a "sample");
 #X obj 49 152 sdReadSampleWithPos_obj~ readSamp1 GLOBAL gRead tab1
 , f 30;
@@ -444,7 +444,7 @@ tab1, f 30;
 #X connect 8 0 13 0;
 #X restore 340 174 pd read/play samples "granular";
 #X text 326 14 tables;
-#N canvas 0 30 721 736 utilities 0;
+#N canvas 0 30 721 722 utilities 0;
 #X floatatom 40 35 5 0 0 0 - - -;
 #X floatatom 40 132 5 0 0 0 - - -;
 #X floatatom 50 86 6 0 0 0 - - -;
@@ -455,14 +455,14 @@ tab1, f 30;
 #X connect 4 0 2 0;
 #X connect 4 0 3 0;
 #X restore 340 251 pd utilities;
-#N canvas 0 30 721 736 Synth 0;
+#N canvas 0 30 721 722 Synth 0;
 #X obj 157 333 sdPackFromHuman;
 #X obj 157 375 sdSynthVoice_obj~ SynthVoice GLOBAL gSynth;
 #X floatatom 63 34 5 0 0 0 - - -;
 #X obj 22 17 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 32 54 f 57;
-#X text 414 274 (empty env enables "always on" mode);
+#X text 473 191 (empty env enables "always on" mode);
 #X msg 68 194 list start ( );
 #X msg 71 225 list stop ( );
 #X obj 399 611 sdPackFromHuman;
@@ -471,105 +471,75 @@ tab1, f 30;
 #X msg 445 506 list stop ( pitch ( 57 ) );
 #X msg 463 561 list stop ( pitch ( 58 ) );
 #X msg 490 591 list stop ( );
-#X text 225 145 set envelopes;
-#X msg 238 275 list set ( envelopes ( ) );
-#X msg 32 77 list start ( pitch ( \$1 ) );
-#X text 199 576 (empty env enables "always on" mode);
-#X text 21 550 set envelopes;
-#X msg 23 577 list set ( envelopes ( ) );
-#X obj 238 167 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#N canvas 0 30 681 722 start 0;
-#X msg 227 164 list set ( envelopes ( start ( z ( pitch ( 0 ) ) attack
-( delay ( 200 ) volume ( 1 ) ) decay ( time ( 500 ) volume ( 0.5 )
-) sustain ( time ( 1000 ) pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch
-( 0 ) ) ) stop ( release ( delay ( 50 ) volume ( 0 ) ) ) ) );
-#X obj 227 141 inlet;
-#X obj 227 239 outlet;
-#X connect 0 0 2 0;
-#X connect 1 0 0 0;
-#X restore 236 186 pd start \, stop env;
-#N canvas 0 30 681 722 start 0;
+#X text 271 118 set envelopes;
+#X msg 311 190 list set ( envelopes ( ) );
+#N canvas 0 30 721 722 start 0;
 #X obj 234 121 inlet;
 #X obj 205 441 outlet;
+#X msg 249 300 list set ( duration ( 1000 ) );
 #X msg 232 162 list set ( envelopes ( start ( z ( pitch ( 0 ) ) attack
-( delay ( 200 ) volume ( 1 ) ) decay ( time ( 500 ) volume ( 0.5 )
-) sustain ( time ( 1000 ) pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch
-( 0 ) ) ) play ( z ( pitch ( 0 ) ) attack ( delay ( 200 ) volume (
-1 ) ) decay ( time ( 500 ) volume ( 0.5 ) ) sustain ( time ( 1000 )
-pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch ( 0 ) ) release ( delay
-( 50 ) volume ( 0 ) ) ) stop ( release ( delay ( 50 ) volume ( 0 )
+( delay ( 0.1 ) volume ( 1 ) ) decay ( time ( 0.2 ) volume ( 0.5 )
+) sustain ( time ( 0.5 ) pitch ( 1 ) ) sustain2 ( time ( 0.9 ) pitch
+( 0 ) ) ) play ( z ( pitch ( 0 ) ) attack ( delay ( 0.1 ) volume (
+1 ) ) decay ( time ( 0.2 ) volume ( 0.5 ) ) sustain ( time ( 0.5 )
+pitch ( 1 ) ) sustain2 ( time ( 0.9 ) pitch ( 0 ) ) release ( time
+( 1 ) volume ( 0 ) ) ) stop ( release ( delay ( 0.01 ) volume ( 0 )
 ) ) ) );
+#X connect 0 0 3 0;
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
-#X restore 231 244 pd start \, stop \, play env;
-#X obj 227 224 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X connect 3 0 1 0;
+#X restore 275 163 pd start \, stop \, play env;
+#X obj 271 142 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 33 163 list play ( pitch ( \$1 ) );
 #X floatatom 64 118 5 0 0 0 - - -;
 #X obj 18 102 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 33 138 f 57;
 #X floatatom 246 39 5 0 0 0 - - -;
 #X msg 246 63 list set ( pitch ( \$1 ) );
-#N canvas 0 30 681 736 start 0;
-#X obj 234 121 inlet;
-#X obj 205 441 outlet;
-#X msg 232 162 list set ( envelopes ( start ( z ( pitch ( 0 ) ) attack
-( delay ( 200 ) volume ( 1 ) ) decay ( time ( 500 ) volume ( 0.5 )
-) sustain ( time ( 1000 ) pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch
-( 0 ) ) ) play ( z ( pitch ( 0 ) ) attack ( delay ( 200 ) volume (
-1 ) ) decay ( time ( 500 ) volume ( 0.5 ) ) sustain ( time ( 1000 )
-pitch ( 1 ) ) sustain2 ( time ( 1500 ) pitch ( 0 ) ) release ( delay
-( 50 ) volume ( 0 ) ) ) stop ( release ( delay ( 50 ) volume ( 0 )
-) ) ) );
-#X connect 0 0 2 0;
-#X connect 2 0 1 0;
-#X restore 30 646 pd start \, stop \, play env;
-#X obj 26 626 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
 #X msg 429 449 list play ( pitch ( 57 ) );
 #X text 298 410 NOTE: if a "play" msg. stops automatically \, this
 isn't yet handled by the voice manager \, resulting in unnecessary
 "stop" messages;
 #X text 578 591 stop all voices;
-#X obj 248 222 loadbang;
-#X obj 50 623 loadbang;
+#X obj 292 140 loadbang;
 #X obj 399 636 sdSynth_obj~ Synth GLOBAL gSynth;
 #X obj 158 402 throw~ \$0-sampling.out;
 #X obj 399 660 throw~ \$0-sampling.out;
+#X obj 276 217 s \$0-synth-init;
+#X obj 182 301 r \$0-synth-init;
+#X obj 297 580 r \$0-synth-init;
+#X msg 32 77 list play ( pitch ( \$1 ) );
+#X msg 33 163 list start ( pitch ( \$1 ) );
 #X connect 0 0 1 0;
-#X connect 1 0 38 0;
+#X connect 1 0 28 0;
 #X connect 2 0 4 1;
 #X connect 3 0 4 0;
-#X connect 4 0 16 0;
+#X connect 4 0 33 0;
 #X connect 6 0 0 0;
 #X connect 7 0 0 0;
-#X connect 8 0 37 0;
+#X connect 8 0 27 0;
 #X connect 9 0 8 0;
 #X connect 10 0 8 0;
 #X connect 11 0 8 0;
 #X connect 12 0 8 0;
 #X connect 13 0 8 0;
-#X connect 15 0 0 0;
-#X connect 16 0 0 0;
-#X connect 19 0 8 0;
-#X connect 20 0 21 0;
-#X connect 21 0 0 0;
+#X connect 15 0 30 0;
+#X connect 16 0 30 0;
+#X connect 17 0 16 0;
+#X connect 18 0 20 1;
+#X connect 19 0 20 0;
+#X connect 20 0 34 0;
+#X connect 21 0 22 0;
 #X connect 22 0 0 0;
-#X connect 23 0 22 0;
-#X connect 24 0 0 0;
-#X connect 25 0 27 1;
-#X connect 26 0 27 0;
-#X connect 27 0 24 0;
-#X connect 28 0 29 0;
-#X connect 29 0 0 0;
-#X connect 30 0 8 0;
-#X connect 31 0 30 0;
+#X connect 23 0 8 0;
+#X connect 26 0 16 0;
+#X connect 27 0 29 0;
+#X connect 31 0 0 0;
 #X connect 32 0 8 0;
-#X connect 35 0 22 0;
-#X connect 36 0 30 0;
-#X connect 37 0 39 0;
+#X connect 33 0 0 0;
+#X connect 34 0 0 0;
 #X restore 340 200 pd Synth;
 #X obj 509 594 sdObjTrack dest;
 #X obj 509 617 sdUnPack;
@@ -667,36 +637,80 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X restore 473 452 pd;
 #X text 342 364 analog 8..15 \; trigger 8..15 \;;
 #X text 485 364 other ctrls \;;
-#N canvas 0 30 721 736 effects 1;
-#X obj 107 210 throw~ \$0-effects.out;
-#X obj 106 144 r~ \$0-effects.in;
-#X obj 270 205 env~;
-#X obj 270 231 sdNum_ui 0 100;
-#X obj 62 210 env~;
-#X obj 62 236 sdNum_ui 0 100;
-#X obj 456 170 env~;
-#X obj 456 196 sdNum_ui 0 100;
-#X obj 516 18 sdNum_ui 0 100;
-#X obj 509 109 dbtorms;
-#X text 34 109 adjust volume levels into the direction of a "limit"
+#N canvas 0 30 721 722 effects 0;
+#X obj 91 188 r~ \$0-effects.in;
+#X obj 255 249 env~;
+#X obj 255 275 sdNum_ui 0 100;
+#X text 19 153 adjust volume levels into the direction of a "limit"
 ;
-#X obj 451 116 osc~ 440;
-#X obj 509 132 sdNum2Sig~;
-#X obj 457 145 *~;
-#X obj 107 182 sdCompressor_obj~ Compressor GLOBAL gEffects;
-#X connect 1 0 4 0;
-#X connect 1 0 14 0;
-#X connect 2 0 3 0;
-#X connect 4 0 5 0;
+#X obj 92 226 sdCompressor_obj~ Compressor GLOBAL gEffects;
+#X obj 93 403 throw~ \$0-effects.out;
+#X obj 256 398 env~;
+#X obj 256 424 sdNum_ui 0 100;
+#X obj 107 41 env~;
+#X obj 107 67 sdNum_ui 0 100;
+#X obj 93 375 sdEcho_obj~ Echo GLOBAL gEffects 60000 1000 0.5;
+#N canvas 0 30 721 722 Test-tone 0;
+#X obj 157 333 sdPackFromHuman;
+#N canvas 0 30 721 722 start 0;
+#X obj 234 121 inlet;
+#X obj 205 441 outlet;
+#X msg 112 281 list set ( duration ( 1000 ) volume ( 0.5 ) );
+#X msg 234 162 list set ( envelopes ( play ( z ( pitch ( 0 ) ) attack
+( delay ( 0.1 ) volume ( 1 ) ) decay ( time ( 0.3 ) volume ( 0.01 )
+) release ( time ( 1 ) volume ( 0 ) ) ) stop ( release ( delay ( 50
+) volume ( 0 ) ) ) ) );
+#X connect 0 0 3 0;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X restore 231 244 pd start \, stop \, play env;
+#X obj 227 224 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 525 238 5 0 0 0 - - -;
+#X msg 525 262 list set ( pitch ( \$1 ) );
+#X obj 248 222 loadbang;
+#X obj 157 379 outlet~;
+#X obj 410 18 inlet;
+#X msg 412 257 list play ( );
+#X floatatom 451 312 5 0 0 0 - - -;
+#X msg 451 337 list set ( duration ( \$1 ) );
+#X obj 157 356 sdSynthVoice_obj~ TestTone GLOBAL gEffects;
+#X obj 410 225 metro 3000;
+#X connect 0 0 11 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 5 0 1 0;
+#X connect 7 0 12 0;
+#X connect 8 0 0 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 11 0 6 0;
+#X connect 12 0 8 0;
+#X restore 385 52 pd Test-tone;
+#X obj 107 17 r~ \$0-effects.in;
+#X obj 214 18 r~ \$0-test-tone;
+#X obj 385 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 201 187 r~ \$0-test-tone;
+#X obj 384 76 s~ \$0-test-tone;
+#X obj 385 7 loadbang;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 4 0 1 0;
+#X connect 4 0 10 0;
 #X connect 6 0 7 0;
 #X connect 8 0 9 0;
-#X connect 9 0 12 0;
-#X connect 11 0 13 0;
-#X connect 12 0 13 1;
-#X connect 13 0 6 0;
-#X connect 13 0 14 0;
-#X connect 14 0 0 0;
-#X connect 14 0 2 0;
+#X connect 10 0 5 0;
+#X connect 10 0 6 0;
+#X connect 11 0 16 0;
+#X connect 12 0 8 0;
+#X connect 13 0 8 0;
+#X connect 14 0 11 0;
+#X connect 15 0 4 0;
+#X connect 17 0 14 0;
 #X restore 340 226 pd effects;
 #N canvas 0 30 681 722 groups: 0;
 #X obj 117 48 inlet;
@@ -828,7 +842,7 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 1;
 #X obj 561 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 644 459 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 644 459 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 394 188 priv.set \$1;
 #X obj 394 211 s \$0-in[1]-enable_rcv;
@@ -850,7 +864,7 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X obj 611 209 s \$0-in[4]-enable_rcv;
 #X obj 685 100 r \$0-audio-enable;
 #X msg 685 123 set \$1;
-#X obj 569 116 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 569 116 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 690 151 priv.set \$1;
 #X obj 690 175 s \$0-audio-enable_rcv;
