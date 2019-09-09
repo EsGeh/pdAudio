@@ -152,6 +152,7 @@ else
 		-lib structuredDataC \
 		-lib sgDevice \
 		-send "dev_version $dev_version" \
+		-send "working-dir symbol "(pwd) \
 		"$install_dest/$patch" &
 
 	set pd_pid $last_pid

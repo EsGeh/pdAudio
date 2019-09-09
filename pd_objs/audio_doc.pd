@@ -1,4 +1,4 @@
-#N canvas 0 30 844 722 10;
+#N canvas 0 30 681 722 10;
 #N canvas 0 30 681 722 glue 0;
 #X msg 98 482 2;
 #X obj 98 505 until;
@@ -368,15 +368,15 @@ $ ( value ) ) ) ) ) Out ( list ) ) #] );
 #X text 2 3 user interface to control all objects;
 #X obj 594 13 r dev_version;
 #X floatatom 594 36 5 1 2 0 - - -;
-#X obj 473 428 sgDeviceToInterface;
-#X obj 473 481 s GUI;
-#X obj 580 406 r \$0-fromGUI;
+#X obj 473 449 sgDeviceToInterface;
+#X obj 473 502 s GUI;
+#X obj 580 427 r \$0-fromGUI;
 #N canvas 0 30 681 722 arrays 0;
 #X obj 14 14 table tab1.array;
 #X obj 14 41 table tab2.array;
 #X obj 14 67 table tab1noSamp.array;
 #X restore 516 12 pd arrays;
-#X obj 13 690 s \$0-fromGUI;
+#X obj 13 676 s \$0-fromGUI;
 #N canvas 0 30 681 722 (subpatch) 0;
 #X obj 67 163 print;
 #X obj 67 139 sdGate;
@@ -392,8 +392,8 @@ $ ( value ) ) ) ) ) Out ( list ) ) #] );
 #X connect 3 1 1 0;
 #X connect 5 0 3 0;
 #X coords 0 -1 1 1 100 22 1 100 100;
-#X restore 473 400 pd;
-#X text 339 300 sgDevice2:;
+#X restore 473 421 pd;
+#X text 339 340 sgDevice2:;
 #N canvas 0 30 681 722 rec/read 0;
 #X text 44 26 record to tables;
 #X text 57 155 read from a table;
@@ -404,7 +404,7 @@ $ ( value ) ) ) ) ) Out ( list ) ) #] );
 tab1, f 30;
 #X connect 4 0 2 0;
 #X connect 5 0 3 0;
-#X restore 340 121 pd rec/read raw tables;
+#X restore 340 101 pd rec/read raw tables;
 #N canvas 0 30 721 722 rec/read 0;
 #X text 20 130 read a section of a table (a "sample");
 #X obj 49 152 sdReadSampleWithPos_obj~ readSamp1 GLOBAL gRead tab1
@@ -418,7 +418,7 @@ tab1, f 30;
 #X connect 1 0 5 0;
 #X connect 3 0 6 0;
 #X connect 7 0 4 0;
-#X restore 340 148 pd rec/read samples;
+#X restore 340 128 pd rec/read samples;
 #N canvas 0 30 721 736 read/play 0;
 #X text 45 39 loop a "grain" starting at pos;
 #X obj 59 388 sdPlayGranular_obj~ playGran GLOBAL gRead tab1;
@@ -442,7 +442,7 @@ tab1, f 30;
 #X connect 5 0 10 0;
 #X connect 7 0 11 0;
 #X connect 8 0 13 0;
-#X restore 340 174 pd read/play samples "granular";
+#X restore 340 154 pd read/play samples "granular";
 #X text 326 14 tables;
 #N canvas 0 30 721 722 utilities 0;
 #X floatatom 40 35 5 0 0 0 - - -;
@@ -454,7 +454,7 @@ tab1, f 30;
 #X connect 3 0 1 0;
 #X connect 4 0 2 0;
 #X connect 4 0 3 0;
-#X restore 340 251 pd utilities;
+#X restore 340 231 pd utilities;
 #N canvas 0 30 721 722 Synth 0;
 #X obj 157 333 sdPackFromHuman;
 #X obj 157 375 sdSynthVoice_obj~ SynthVoice GLOBAL gSynth;
@@ -540,7 +540,7 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 32 0 8 0;
 #X connect 33 0 0 0;
 #X connect 34 0 0 0;
-#X restore 340 200 pd Synth;
+#X restore 340 180 pd Synth;
 #X obj 509 594 sdObjTrack dest;
 #X obj 509 617 sdUnPack;
 #X obj 387 627 sdPack;
@@ -548,7 +548,7 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X obj 388 675 send;
 #X obj 340 63 sdTableNoArray_obj tab1noSamp gTab 60000;
 #X obj 340 37 sdTableSampNoArray_obj tab1 gTab 60000;
-#X obj 341 320 sgDevice_obj sgDevice GLOBAL 2;
+#X obj 341 360 sgDevice_obj sgDevice GLOBAL 2;
 #X obj 390 570 sdPiano_obj piano GLOBAL 2 1 start stop, f 18;
 #N canvas 0 30 762 722 (subpatch) 0;
 #X obj 67 163 print;
@@ -565,8 +565,8 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 3 1 1 0;
 #X connect 5 0 3 0;
 #X coords 0 -1 1 1 100 22 1 100 100;
-#X restore 341 429 pd;
-#X obj 341 456 sgDeviceToInterface;
+#X restore 341 450 pd;
+#X obj 341 477 sgDeviceToInterface;
 #N canvas 0 30 762 722 (subpatch) 0;
 #X obj 67 163 print;
 #X obj 67 139 sdGate;
@@ -582,10 +582,10 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 3 1 1 0;
 #X connect 5 0 3 0;
 #X coords 0 -1 1 1 100 22 1 100 100;
-#X restore 341 480 pd;
-#X obj 341 508 sdObjGroupsInterface_obj DevToAudio GLOBAL AudioRouting
+#X restore 341 501 pd;
+#X obj 341 529 sdObjGroupsInterface_obj DevToAudio GLOBAL AudioRouting
 , f 42;
-#N canvas 0 30 681 722 filter 0;
+#N canvas 0 30 681 736 filter 0;
 #X obj 43 30 inlet;
 #X obj 53 386 outlet;
 #X obj 338 389 outlet;
@@ -618,7 +618,7 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 3 1 4 0;
 #X connect 4 0 1 0;
 #X connect 4 1 2 0;
-#X restore 341 345 pd filter reserved ctrls;
+#X restore 341 385 pd filter reserved ctrls;
 #N canvas 0 30 681 722 (subpatch) 0;
 #X obj 67 163 print;
 #X obj 67 139 sdGate;
@@ -634,10 +634,10 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 3 1 1 0;
 #X connect 5 0 3 0;
 #X coords 0 -1 1 1 100 22 1 100 100;
-#X restore 473 452 pd;
-#X text 342 364 analog 8..15 \; trigger 8..15 \;;
-#X text 485 364 other ctrls \;;
-#N canvas 0 30 721 722 effects 0;
+#X restore 473 473 pd;
+#X text 342 404 analog 8..15 \; trigger 8..15 \;;
+#X text 485 404 other ctrls \;;
+#N canvas 0 30 681 722 effects 0;
 #X obj 91 188 r~ \$0-effects.in;
 #X obj 255 249 env~;
 #X obj 255 275 sdNum_ui 0 100;
@@ -711,7 +711,7 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 14 0 11 0;
 #X connect 15 0 4 0;
 #X connect 17 0 14 0;
-#X restore 340 226 pd effects;
+#X restore 340 206 pd effects;
 #N canvas 0 30 681 722 groups: 0;
 #X obj 117 48 inlet;
 #X msg 112 126 list gIO gRec gRead gSynth gEffects gTab;
@@ -726,13 +726,11 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 3 0 4 0;
 #X connect 5 0 6 0;
 #X connect 6 0 1 0;
-#X restore 13 60 pd groups: gIO gRec gRead gSynth gEffects gTab;
+#X restore 13 47 pd groups: gIO gRec gRead gSynth gEffects gTab;
 #X obj 509 571 r \$0-fromGUI;
-#X obj 125 39 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 14 35 r GLOBAL;
-#X obj 13 85 sdObjState_ui GUI;
-#N canvas 0 30 721 736 audio 0;
+#X obj 13 23 r GLOBAL;
+#X obj 13 71 sdObjState_ui GUI;
+#N canvas 0 30 681 722 audio 0;
 #X obj 152 679 dac~;
 #X obj 32 340 *~;
 #X obj 139 647 *~;
@@ -842,7 +840,7 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 1;
 #X obj 561 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 644 459 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 644 459 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 394 188 priv.set \$1;
 #X obj 394 211 s \$0-in[1]-enable_rcv;
@@ -864,7 +862,7 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X obj 611 209 s \$0-in[4]-enable_rcv;
 #X obj 685 100 r \$0-audio-enable;
 #X msg 685 123 set \$1;
-#X obj 569 116 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 569 116 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 690 151 priv.set \$1;
 #X obj 690 175 s \$0-audio-enable_rcv;
@@ -959,7 +957,18 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 88 0 89 0;
 #X connect 89 0 90 0;
 #X coords 0 -1 1 1 85 60 1 500 100;
-#X restore 453 231 pd audio routing;
+#X restore 340 254 pd audio routing;
+#X obj 541 88 r working-dir;
+#X symbolatom 541 111 20 0 0 0 - - -;
+#X obj 438 189 r working-dir;
+#N canvas 0 30 681 722 save/load 0;
+#X obj 107 12 inlet;
+#X obj 111 89 sdTableSave_obj SaveTables GLOBAL gIO gTab, f 26;
+#X msg 111 66 list set 3 save-dir 1 \$1/save/tables;
+#X text 144 38 save state+table into a directory:;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 438 213 pd save/load tables;
 #X connect 2 0 3 0;
 #X connect 3 0 0 0;
 #X connect 4 0 31 0;
@@ -978,8 +987,9 @@ isn't yet handled by the voice manager \, resulting in unnecessary
 #X connect 30 0 26 0;
 #X connect 30 1 9 0;
 #X connect 31 0 5 0;
-#X connect 35 0 39 0;
+#X connect 35 0 38 0;
 #X connect 36 0 17 0;
 #X connect 37 0 35 0;
-#X connect 38 0 35 0;
-#X connect 39 0 8 0;
+#X connect 38 0 8 0;
+#X connect 40 0 41 0;
+#X connect 42 0 43 0;

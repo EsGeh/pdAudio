@@ -1,4 +1,4 @@
-#N canvas 0 30 681 722 10;
+#N canvas 0 30 967 736 10;
 #X obj 38 11 inlet;
 #X obj 259 12 r \$0-fromObj;
 #X obj 91 317 s \$0-fromObj;
