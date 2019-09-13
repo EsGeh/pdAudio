@@ -13,6 +13,7 @@ source "$SCRIPTS_DIR/utils/cmd_args.fish"
 
 set install_dest "$BASE_DIR/install"
 set dev_version 2
+set PD pd
 
 set patch "audio_doc.pd"
 # set io_patch
@@ -21,6 +22,7 @@ set patch "audio_doc.pd"
 set options_descr \
 	"h/help/print help" \
 	"o/pd-options=/options for pd" \
+	"p/purr-data/run using purr-data instead of vanilla pd" \
 	"v/dev-version=/sgDevice version. default: $dev_version"
 
 #################################################
@@ -55,6 +57,9 @@ if set -q _flag_h
 else
 	if set -q _flag_dev_version
 		set dev_version $_flag_dev_version
+	end
+	if set -q _flag_purr_data
+		set PD 'purr-data'
 	end
 end
 
@@ -100,7 +105,7 @@ if test -f "$install_dest/$io_patch"
 	echo "io-patch: $io_patch"
 
 	## audio:
-	pd \
+	command $PD \
 		-noprefs \
 		-jack \
 		-path "$install_dest/pdUtils" \
@@ -113,7 +118,7 @@ if test -f "$install_dest/$io_patch"
 	set pd_pid $last_pid
 
 	## io:
-	pd \
+	command $PD \
 		-noprefs \
 		-noaudio \
 		-alsamidi \
@@ -132,10 +137,7 @@ else
 
 	set pd_options (string split -- ' ' $_flag_pd_options)
 
-	echo "pd options: '$pd_options', count: "(count $pd_options)
-
-	## audio:
-	pd \
+	command $PD \
 		-noprefs \
 		-nostdpath \
 		-stderr \
