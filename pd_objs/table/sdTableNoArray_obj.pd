@@ -6,7 +6,7 @@
 #X obj 120 231 list;
 #X obj 75 172 sdEventToProperties;
 #X obj 69 104 sdPackFilter info update;
-#X obj 103 48 sdObjState \$1 GLOBAL \$2;
+#X obj 102 54 sdObjState \$1 GLOBAL \$2;
 #X connect 0 0 7 0;
 #X connect 1 0 4 0;
 #X connect 2 0 7 1;
